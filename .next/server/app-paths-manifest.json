@@ -1,0 +1,7 @@
+{
+  "/welcome/page": "app/welcome/page.js",
+  "/fan/explore/page": "app/fan/explore/page.js",
+  "/fan/following/page": "app/fan/following/page.js",
+  "/fan/drop/[id]/page": "app/fan/drop/[id]/page.js",
+  "/creator/[creatorId]/page": "app/creator/[creatorId]/page.js"
+}
