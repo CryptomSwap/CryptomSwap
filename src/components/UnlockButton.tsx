@@ -33,7 +33,7 @@ export default function UnlockButton({
 
   return (
     <motion.button
-      className={`w-full rounded-full font-bold ${getSizeClasses()} ${getVariantClasses()} relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={`w-full rounded-full font-medium text-premium capitalize ${getSizeClasses()} ${getVariantClasses()} relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed`}
       disabled={disabled || loading}
       whileHover={{ 
         scale: 1.02,

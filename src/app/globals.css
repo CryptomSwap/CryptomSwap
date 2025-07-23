@@ -3,16 +3,119 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+@font-face {
+  font-family: 'Sacrifice';
+  src: url('/fonts/sacrifice-font/SacrificeDemo-8Ox1B.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 html, body {
-    background: #0A0A0A;
-    color: #EDEDED;
-  font-family: 'Inter', sans-serif;
+  background: #0A0A0A;
+  color: #EDEDED;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  text-transform: capitalize;
+  color: #EDEDED;
+}
+
+button, .btn, .btn-premium {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  color: #EDEDED;
+}
+
+::placeholder {
+  color: #B0B0B0;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.text-premium {
+  color: #EDEDED !important;
+}
+.text-secondary {
+  color: #B0B0B0 !important;
+}
+.text-placeholder {
+  color: #999 !important;
+}
+
+/* Remove excessive boldness from all text by default */
+.font-bold, .font-black, .font-extrabold, .font-semibold {
+  font-weight: 500 !important;
+}
+
+/* Ensure PEEPZ logo is truly bold */
+h1.font-black, .font-black h1, h1 .font-black {
+  font-weight: 900 !important;
+}
+
+/* Specific override for PEEPZ logo */
+h1 span[style*="color: #ffa31a"], 
+h1 span[style*="color: '#ffa31a'"],
+.font-black span[style*="color: #ffa31a"],
+.font-black span[style*="color: '#ffa31a'"] {
+  font-weight: 900 !important;
+}
+
+/* Ensure all PEEPZ text is bold */
+.peepz-logo {
+  font-weight: 900 !important;
+}
+
+/* Only use 700+ for rare emphasis */
+.font-emphasis {
+  font-weight: 700 !important;
+}
+
+/* Remove uppercase by default, use capitalize for headings/buttons */
+.uppercase {
+  text-transform: none !important;
+}
+.capitalize, .btn, button, h1, h2, h3, h4 {
+  text-transform: capitalize !important;
+}
+
+/* Secondary text */
+.text-gray-400, .text-gray-500, .text-gray-300 {
+  color: #B0B0B0 !important;
+  font-weight: 400 !important;
+}
+
+.text-white, .text-text {
+  color: #EDEDED !important;
+}
+
+.text-black {
+  color: #181818 !important;
+}
 
 * {
   box-sizing: border-box;
@@ -59,10 +162,10 @@ html, body {
 
 @keyframes shimmer {
   0% {
-    transform: translateX(-100%);
+    background-position: -200% center;
   }
   100% {
-    transform: translateX(100%);
+    background-position: 200% center;
   }
 }
 
@@ -84,7 +187,56 @@ html, body {
   }
 
   .animate-shimmer {
-  animation: shimmer 2s ease-in-out infinite;
+  background-size: 400% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes subtleShimmer {
+  0% {
+    background-position: -300% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+.animate-subtleShimmer {
+  background-size: 500% auto;
+  animation: subtleShimmer 5s ease-in-out infinite;
+}
+
+@keyframes glowShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-glowShimmer {
+  background-size: 400% auto;
+  animation: glowShimmer 6s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-sheen {
+  background-size: 400% auto;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: sheen 2s ease-in-out infinite;
 }
 
 .animate-float {
@@ -198,6 +350,21 @@ html, body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s ease-out;
 }
 
 @keyframes blink {

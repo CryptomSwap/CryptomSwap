@@ -13,10 +13,11 @@ const rewards = [
 ];
 
 export default function Page() {
-  const [referralCode, setReferralCode] = useState(getReferralCode() || '');
+  const [referralCode, setReferralCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showRewards, setShowRewards] = useState(false);
   const [currentReward, setCurrentReward] = useState(0);
+  const [referralCount, setReferralCount] = useState(0);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -45,7 +46,13 @@ export default function Page() {
     });
   };
 
-  const referralCount = getReferralCount();
+  // Load data on client side
+  React.useEffect(() => {
+    const savedReferralCode = getReferralCode();
+    const savedReferralCount = getReferralCount();
+    setReferralCode(savedReferralCode || '');
+    setReferralCount(savedReferralCount);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">

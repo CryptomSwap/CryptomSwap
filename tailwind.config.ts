@@ -1,6 +1,4 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,7 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        swirl: ['"Great Vibes"', 'cursive'],
+        luxury: ['"Marcellus"', 'serif'],
+        sacrifice: ['Sacrifice', 'serif'],
       },
       colors: {
         background: '#0A0A0A',
@@ -25,6 +27,4 @@ const config: Config = {
     },
   },
   plugins: [],
-};
-
-export default config; 
+}; 

@@ -3,15 +3,69 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  path: string;
-  userType: 'fan' | 'creator' | 'both';
-}
+// Modern SVG Icons for Creator Navigation
+const HomeIcon = ({ active }: { active: boolean }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
+    <path d="M3 12L12 3l9 9v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7z" 
+          stroke={active ? '#FFA31A' : '#B0B0B0'} 
+          strokeWidth="1.5" 
+          fill={active ? '#FFA31A' : 'none'} />
+    <rect x="9" y="14" width="6" height="5" rx="1" 
+          fill={active ? '#fff' : '#B0B0B0'} 
+          opacity=".2" />
+  </svg>
+);
 
-// Modern SVG Icons
+const ReelsIcon = ({ active }: { active: boolean }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
+    <rect x="3" y="5" width="18" height="14" rx="3" 
+          stroke={active ? '#FFA31A' : '#B0B0B0'} 
+          strokeWidth="1.5" 
+          fill="none" />
+    <rect x="8" y="9" width="8" height="6" rx="2" 
+          fill={active ? '#FFA31A' : '#B0B0B0'} 
+          opacity=".2" />
+  </svg>
+);
+
+const UploadIcon = ({ active }: { active: boolean }) => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_12px_rgba(255,163,26,0.9)]' : ''}`}>
+    <circle cx="12" cy="12" r="11" 
+            stroke={active ? '#FFA31A' : '#B0B0B0'} 
+            strokeWidth="2" 
+            fill="url(#uploadGradient)" />
+    <defs>
+      <linearGradient id="uploadGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FFA31A"/>
+        <stop offset="1" stopColor="#8A00D4"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 8v8M8 12h8" 
+          stroke="#fff" 
+          strokeWidth="2" 
+          strokeLinecap="round" />
+  </svg>
+);
+
+const ChartIcon = ({ active }: { active: boolean }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
+    <rect x="4" y="10" width="3" height="7" rx="1.5" 
+          fill={active ? '#FFA31A' : '#B0B0B0'} />
+    <rect x="10.5" y="6" width="3" height="11" rx="1.5" 
+          fill={active ? '#FFA31A' : '#B0B0B0'} />
+    <rect x="17" y="13" width="3" height="4" rx="1.5" 
+          fill={active ? '#FFA31A' : '#B0B0B0'} />
+  </svg>
+);
+
+const BellIcon = ({ active }: { active: boolean }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
+    <path d="M12 22c1.1 0 2-.9 2-2H10a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.63 5.36 6 7.92 6 11v5l-1.29 1.29A1 1 0 0 0 6 19h12a1 1 0 0 0 .71-1.71L18 16z" 
+          fill={active ? '#FFA31A' : '#B0B0B0'} />
+  </svg>
+);
+
+// Fan Navigation Icons
 const DiscoverIcon = ({ active }: { active: boolean }) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" 
@@ -39,45 +93,9 @@ const ExclusiveIcon = ({ active }: { active: boolean }) => (
   </svg>
 );
 
-const WalletIcon = ({ active }: { active: boolean }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
-    <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z" 
-          fill={active ? '#FFA31A' : '#6B7280'} 
-          stroke={active ? '#FFA31A' : '#6B7280'} 
-          strokeWidth="0.5"/>
-  </svg>
-);
-
 const ProfileIcon = ({ active }: { active: boolean }) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" 
-          fill={active ? '#FFA31A' : '#6B7280'} 
-          stroke={active ? '#FFA31A' : '#6B7280'} 
-          strokeWidth="0.5"/>
-  </svg>
-);
-
-const StudioIcon = ({ active }: { active: boolean }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
-    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" 
-          fill={active ? '#FFA31A' : '#6B7280'} 
-          stroke={active ? '#FFA31A' : '#6B7280'} 
-          strokeWidth="0.5"/>
-  </svg>
-);
-
-const CreateIcon = ({ active }: { active: boolean }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
-    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" 
-          fill={active ? '#FFA31A' : '#6B7280'} 
-          stroke={active ? '#FFA31A' : '#6B7280'} 
-          strokeWidth="0.5"/>
-  </svg>
-);
-
-const NetworkIcon = ({ active }: { active: boolean }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
-    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H17c-.8 0-1.54.37-2.01 1l-1.7 2.26V15h-1.5v6H20zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-7H9V9c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6.5h1.5V22h4z" 
           fill={active ? '#FFA31A' : '#6B7280'} 
           stroke={active ? '#FFA31A' : '#6B7280'} 
           strokeWidth="0.5"/>
@@ -93,35 +111,93 @@ const FollowingIcon = ({ active }: { active: boolean }) => (
   </svg>
 );
 
-const EarningsIcon = ({ active }: { active: boolean }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-all duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(255,163,26,0.8)]' : ''}`}>
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" 
-          fill={active ? '#FFA31A' : '#6B7280'} 
-          stroke={active ? '#FFA31A' : '#6B7280'} 
-          strokeWidth="0.5"/>
-  </svg>
-);
+// Helper to get creator avatar from localStorage
+function useCreatorAvatar() {
+  const [avatar, setAvatar] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const currentUser = localStorage.getItem('currentUser');
+      if (currentUser) {
+        try {
+          const user = JSON.parse(currentUser);
+          setAvatar(user.avatar || null);
+        } catch {
+          setAvatar(null);
+        }
+      }
+    }
+  }, []);
+  return avatar;
+}
 
-const navItems: NavItem[] = [
-  // Fan navigation
-  { id: "discover", label: "Discover", icon: <DiscoverIcon active={false} />, path: "/fan/explore", userType: 'fan' },
-  { id: "following", label: "Following", icon: <FollowingIcon active={false} />, path: "/fan/following", userType: 'fan' },
-  { id: "vault", label: "Vault", icon: <VaultIcon active={false} />, path: "/fan/vault", userType: 'fan' },
-  { id: "exclusive", label: "Exclusive", icon: <ExclusiveIcon active={false} />, path: "/fan/invite", userType: 'fan' },
-  { id: "profile", label: "Profile", icon: <ProfileIcon active={false} />, path: "/fan/profile", userType: 'fan' },
-  
-  // Creator navigation
-  { id: "studio", label: "Studio", icon: <StudioIcon active={false} />, path: "/creator", userType: 'creator' },
-  { id: "create", label: "Create", icon: <CreateIcon active={false} />, path: "/creator/upload", userType: 'creator' },
-  { id: "network", label: "Network", icon: <NetworkIcon active={false} />, path: "/creator/referrals", userType: 'creator' },
-  { id: "earnings", label: "Earnings", icon: <EarningsIcon active={false} />, path: "/creator/profile", userType: 'creator' },
-  { id: "profile", label: "Profile", icon: <ProfileIcon active={false} />, path: "/creator/profile", userType: 'creator' }
-];
+// Creator Navigation Item Component
+function CreatorNavItem({ 
+  icon, 
+  label, 
+  path, 
+  highlight, 
+  badge 
+}: { 
+  icon: React.ReactNode; 
+  label: string; 
+  path: string; 
+  highlight?: boolean; 
+  badge?: string; 
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const active = pathname === path || pathname.startsWith(path);
+
+  return (
+    <motion.button
+      onClick={() => router.push(path)}
+      className={`flex flex-col items-center justify-center relative transition-all duration-300 ${
+        highlight ? 'scale-110 z-10' : ''
+      }`}
+      whileHover={{ scale: highlight ? 1.15 : 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      style={highlight ? { 
+        filter: 'drop-shadow(0 0 20px rgba(255, 163, 26, 0.6))' 
+      } : {}}
+    >
+      <div className={`rounded-full flex items-center justify-center p-2 ${
+        highlight 
+          ? 'bg-gradient-to-br from-orange-400 to-purple-600 shadow-lg animate-pulse' 
+          : active 
+            ? 'bg-black/40 ring-2 ring-orange-400/60' 
+            : 'bg-transparent'
+      }`} 
+      style={highlight ? { 
+        boxShadow: '0 0 24px 8px rgba(255, 163, 26, 0.4)' 
+      } : {}}>
+        {React.cloneElement(icon as React.ReactElement, { active })}
+      </div>
+      <span className={`text-xs mt-1 font-medium ${
+        active ? 'text-[#FFA31A]' : 'text-gray-400'
+      }`}>
+        {label}
+      </span>
+      {badge && (
+        <motion.span 
+          className={`absolute -top-1 -right-2 text-xs rounded-full px-1.5 py-0.5 ${
+            label === 'Inbox' ? 'bg-red-500 text-white' : 'bg-orange-400 text-white'
+          } shadow font-bold`} 
+          style={{ fontSize: 10 }}
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          {badge}
+        </motion.span>
+      )}
+    </motion.button>
+  );
+}
 
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
   const [userType, setUserType] = useState<'fan' | 'creator'>('fan');
+  const avatar = useCreatorAvatar();
 
   useEffect(() => {
     const currentUser = localStorage.getItem('currentUser');
@@ -136,13 +212,57 @@ export default function Navigation() {
     }
   }, []);
 
-  const isActive = (path: string) => {
-    return pathname === path || pathname.startsWith(path);
-  };
+  // --- CREATOR NAVIGATION ---
+  if (userType === 'creator') {
+    // Mock data for badges (replace with real logic)
+    const hasNewStats = true;
+    const hasNewInbox = true;
 
-  const userNavItems = navItems.filter(item => 
-    item.userType === userType || item.userType === 'both'
-  );
+    return (
+      <motion.nav
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        className="fixed bottom-0 w-full flex justify-around items-center bg-black/90 py-4 border-t border-gray-800 z-50 rounded-t-2xl shadow-2xl backdrop-blur-xl"
+      >
+        <CreatorNavItem 
+          icon={<HomeIcon active={pathname === '/creator'} />} 
+          label="Dashboard" 
+          path="/creator" 
+        />
+        <CreatorNavItem 
+          icon={<ReelsIcon active={pathname === '/creator/drops'} />} 
+          label="My Drops" 
+          path="/creator/drops" 
+        />
+        <CreatorNavItem 
+          icon={<UploadIcon active={pathname === '/creator/upload'} />} 
+          label="Upload" 
+          path="/creator/upload" 
+          highlight 
+        />
+        <CreatorNavItem 
+          icon={<ChartIcon active={pathname === '/creator/stats'} />} 
+          label="Stats" 
+          path="/creator/stats" 
+        />
+        <CreatorNavItem 
+          icon={<BellIcon active={pathname === '/creator/inbox'} />} 
+          label="Inbox" 
+          path="/creator/inbox" 
+        />
+      </motion.nav>
+    );
+  }
+
+  // --- FAN NAVIGATION ---
+  const fanNavItems = [
+    { id: "discover", label: "Discover", icon: <DiscoverIcon active={false} />, path: "/fan/explore" },
+    { id: "following", label: "Following", icon: <FollowingIcon active={false} />, path: "/fan/following" },
+    { id: "vault", label: "Vault", icon: <VaultIcon active={false} />, path: "/fan/vault" },
+    { id: "exclusive", label: "Exclusive", icon: <ExclusiveIcon active={false} />, path: "/fan/invite" },
+    { id: "profile", label: "Profile", icon: <ProfileIcon active={false} />, path: "/fan/profile" },
+  ];
 
   return (
     <motion.nav
@@ -152,8 +272,8 @@ export default function Navigation() {
       className="fixed bottom-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl border-t border-white/10"
     >
       <div className="flex items-center justify-around px-4 py-0.5">
-        {userNavItems.map((item, index) => {
-          const active = isActive(item.path);
+        {fanNavItems.map((item, index) => {
+          const active = pathname === item.path || pathname.startsWith(item.path);
           
           return (
             <motion.button
@@ -177,7 +297,6 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {/* Icon */}
               <motion.div
                 className="mb-1 relative z-10"
                 animate={{
@@ -188,20 +307,16 @@ export default function Navigation() {
                 {React.cloneElement(item.icon as React.ReactElement, { active })}
               </motion.div>
 
-              {/* Label */}
               <span className={`text-xs font-bold tracking-wide relative z-10 ${
                 active ? 'text-[#FFA31A]' : 'text-gray-400'
               }`}>
                 {item.label}
               </span>
-
-              {/* Active indicator */}
             </motion.button>
           );
         })}
       </div>
 
-      {/* Bottom safe area for mobile */}
       <div className="h-1 bg-background/80 backdrop-blur-xl" />
     </motion.nav>
   );

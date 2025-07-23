@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import DropCard from "@/components/DropCard";
-import Navigation from "@/components/Navigation";
+import CreatorNavbar from "@/components/CreatorNavbar";
 
 // Mock data for creator profile
 const mockCreator = {
@@ -172,8 +172,8 @@ export default function CreatorProfilePage() {
         </motion.div>
       </div>
 
-      {/* Bottom Navigation */}
-      <Navigation />
+              {/* Bottom Navigation */}
+        <CreatorNavbar />
     </div>
   );
 } 

@@ -38,13 +38,14 @@ const TypewriterTagline = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.2, duration: 0.8 }}
-      className="font-bold tracking-[0.15em] text-sm md:text-base lg:text-lg mb-12 text-center"
+      className="font-medium text-premium text-sm md:text-base lg:text-lg mb-12 text-center"
       style={{
         background: 'linear-gradient(135deg, #FFB84D 0%, #B366FF 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
-        fontFamily: 'Aeonik, system-ui, -apple-system, sans-serif'
+        letterSpacing: '0.2px',
+        lineHeight: 1.4
       }}
     >
       {displayText}
@@ -186,20 +187,20 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center relative" style={{ fontFamily: 'Aeonik, system-ui, -apple-system, sans-serif' }}>
+    <div className="min-h-screen bg-black flex flex-col items-center justify-center relative">
       {/* Main content */}
       <div className="text-center z-10 px-4 w-full max-w-md">
         {/* Welcome Message */}
       <AnimatePresence>
           {showWelcome && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mb-8"
-            >
-              <h2 className="text-lg font-medium text-[#FFA31A] tracking-wide">
+                         <motion.div
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               transition={{ duration: 3, delay: 0.3, ease: "easeOut" }}
+               className="mb-8"
+             >
+              <h2 className="text-lg font-sacrifice text-transparent bg-clip-text bg-gradient-to-r from-[#ffa31a] via-[#8A00D4] to-[#4A0080] tracking-wide">
                 Welcome, ADMIN.
               </h2>
             </motion.div>
@@ -213,8 +214,8 @@ export default function Page() {
           transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
           className="mb-4"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.2em] uppercase text-center">
-            <span style={{ color: '#FFA31A' }}>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.2em] uppercase text-center peepz-logo">
+            <span style={{ color: '#ffa31a' }}>
               PEEPZ
             </span>
           </h1>

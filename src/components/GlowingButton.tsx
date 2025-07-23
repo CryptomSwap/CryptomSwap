@@ -36,7 +36,7 @@ export default function GlowingButton({
       onClick={onClick}
       disabled={disabled || loading}
       className={`
-        relative overflow-hidden rounded-full font-black tracking-wider uppercase
+        relative overflow-hidden rounded-full font-medium text-premium capitalize
         border-2 border-white/20 shadow-2xl
         ${sizeClasses[size]}
         ${variantClasses[variant]}

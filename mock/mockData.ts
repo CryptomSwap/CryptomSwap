@@ -1,132 +1,302 @@
-// Mock data for PEEPZ app
-// Creator and Drop models
-export interface Creator {
-  id: string;
-  name: string;
-  avatar: string;
-  banner: string;
-  bio: string;
-}
-
-export interface Drop {
-  id: string;
-  creatorId: string;
-  title: string;
-  type: "image" | "video" | "audio";
-  mediaUrl: string;
-  description: string;
-  unlockLimit: number;
-  unlockedBy: string[];
-  createdAt: string;
-  expiresAt: string;
-  tags: string[];
-}
-
-const TAGS = ["🔥 Trending", "Free", "NSFW", "Art", "Behind-the-Scenes", "Drop", "Exclusive"];
-const BIOS = [
-  "Cinematic creator. Unlock my world.",
-  "Art, music, and more. Join the journey.",
-  "Exclusive drops every week.",
-  "Behind the scenes and premium content.",
-  "Unfiltered, uncut, unforgettable.",
-  "Your new favorite creator.",
-  "Cyber-inspired, always fresh.",
-  "Unlock the unexpected.",
-  "Premium vibes only.",
-  "Welcome to my digital playground."
+// Peepz Mock Data
+export const creators = [
+  {
+    name: "Alex Rivera",
+    handle: "@alexrivera",
+    avatar: "/avatars/alex.png",
+    verified: true,
+    status: "active",
+    followers: 18300,
+    earnings: 5400,
+    bio: "Alex shares exclusive music drops and behind-the-scenes studio moments.",
+    category: "Music",
+    drops: [
+      {
+        title: "Exclusive Behind the Scenes",
+        description: "Go backstage with Alex for a raw, unfiltered look at the creative process.",
+        image: "/drops/bts-alex.jpg",
+        price: 12,
+        status: "active",
+        timeLeft: "2:48 left",
+        slotsLeft: "Only 3 spots left!",
+        unlockCount: 88,
+        reactionPreview: ["/fans/daniel.png", "/fans/luna.png", "/fans/leo.png"],
+      },
+      {
+        title: "Studio Confession",
+        description: "A late-night session with unreleased tracks and Q&A.",
+        image: "/drops/studio-confession.jpg",
+        price: 10,
+        status: "expiring",
+        timeLeft: "1:12 left",
+        slotsLeft: "Only 1 spot left!",
+        unlockCount: 122,
+        reactionPreview: ["/fans/olivia.png", "/fans/leo.png", "/fans/daniel.png"],
+      },
+      {
+        title: "VIP Soundcheck",
+        description: "Experience the energy before the show with Alex's crew.",
+        image: "/drops/vip-soundcheck.jpg",
+        price: 8,
+        status: "sold out",
+        timeLeft: "-",
+        slotsLeft: "Sold out!",
+        unlockCount: 150,
+        reactionPreview: ["/fans/luna.png", "/fans/olivia.png", "/fans/leo.png"],
+      },
+    ],
+  },
+  {
+    name: "Camila Sato",
+    handle: "@camisato",
+    avatar: "/avatars/camila.png",
+    verified: true,
+    status: "active",
+    followers: 28900,
+    earnings: 12400,
+    bio: "Camila gives fans early access to indie film scenes and live edits.",
+    category: "Acting",
+    drops: [
+      {
+        title: "Early Preview: Neon Nights",
+        description: "Sneak peek of Camila's latest cyber-thriller.",
+        image: "/drops/neon-nights.jpg",
+        price: 15,
+        status: "active",
+        timeLeft: "5:22 left",
+        slotsLeft: "Only 5 spots left!",
+        unlockCount: 77,
+        reactionPreview: ["/fans/leo.png", "/fans/luna.png", "/fans/daniel.png"],
+      },
+      {
+        title: "Live Edit Session",
+        description: "Watch Camila edit a scene in real time and answer fan questions.",
+        image: "/drops/live-edit.jpg",
+        price: 9,
+        status: "active",
+        timeLeft: "12:10 left",
+        slotsLeft: "Only 8 spots left!",
+        unlockCount: 54,
+        reactionPreview: ["/fans/olivia.png", "/fans/daniel.png", "/fans/luna.png"],
+      },
+      {
+        title: "Director's Commentary",
+        description: "Exclusive commentary on Camila's award-winning short film.",
+        image: "/drops/director-commentary.jpg",
+        price: 7,
+        status: "expired",
+        timeLeft: "-",
+        slotsLeft: "Expired",
+        unlockCount: 99,
+        reactionPreview: ["/fans/leo.png", "/fans/olivia.png", "/fans/daniel.png"],
+      },
+    ],
+  },
+  {
+    name: "Zane Storm",
+    handle: "@zanestorm",
+    avatar: "/avatars/zane.png",
+    verified: false,
+    status: "active",
+    followers: 45200,
+    earnings: 25000,
+    bio: "Zane drops exclusive crypto trading tips and NFT alpha.",
+    category: "Crypto",
+    drops: [
+      {
+        title: "NFT Alpha Leak",
+        description: "Zane reveals his next NFT picks before the public.",
+        image: "/drops/nft-alpha.jpg",
+        price: 15,
+        status: "active",
+        timeLeft: "0:59 left",
+        slotsLeft: "Only 2 spots left!",
+        unlockCount: 112,
+        reactionPreview: ["/fans/leo.png", "/fans/daniel.png", "/fans/luna.png"],
+      },
+      {
+        title: "Crypto Portfolio Reveal",
+        description: "See Zane's real portfolio and ask questions live.",
+        image: "/drops/portfolio-reveal.jpg",
+        price: 12,
+        status: "active",
+        timeLeft: "3:45 left",
+        slotsLeft: "Only 4 spots left!",
+        unlockCount: 98,
+        reactionPreview: ["/fans/olivia.png", "/fans/leo.png", "/fans/luna.png"],
+      },
+      {
+        title: "Bear Market AMA",
+        description: "Zane answers your toughest bear market questions.",
+        image: "/drops/bear-ama.jpg",
+        price: 10,
+        status: "expired",
+        timeLeft: "-",
+        slotsLeft: "Expired",
+        unlockCount: 80,
+        reactionPreview: ["/fans/daniel.png", "/fans/olivia.png", "/fans/leo.png"],
+      },
+    ],
+  },
+  {
+    name: "Luna1995",
+    handle: "@luna1995",
+    avatar: "/avatars/luna.png",
+    verified: false,
+    status: "active",
+    followers: 12400,
+    earnings: 3200,
+    bio: "Luna shares fitness routines and wellness tips for busy creators.",
+    category: "Fitness",
+    drops: [
+      {
+        title: "Morning HIIT Routine",
+        description: "Luna's favorite 20-min HIIT for energy and focus.",
+        image: "/drops/hiit.jpg",
+        price: 7,
+        status: "active",
+        timeLeft: "8:20 left",
+        slotsLeft: "Only 6 spots left!",
+        unlockCount: 61,
+        reactionPreview: ["/fans/leo.png", "/fans/daniel.png", "/fans/olivia.png"],
+      },
+      {
+        title: "Meal Prep Secrets",
+        description: "Quick, healthy meals for creators on the go.",
+        image: "/drops/meal-prep.jpg",
+        price: 6,
+        status: "active",
+        timeLeft: "15:00 left",
+        slotsLeft: "Only 10 spots left!",
+        unlockCount: 44,
+        reactionPreview: ["/fans/luna.png", "/fans/olivia.png", "/fans/leo.png"],
+      },
+      {
+        title: "Stretch & Recover",
+        description: "Luna's post-workout stretch routine for flexibility.",
+        image: "/drops/stretch.jpg",
+        price: 5,
+        status: "expired",
+        timeLeft: "-",
+        slotsLeft: "Expired",
+        unlockCount: 39,
+        reactionPreview: ["/fans/daniel.png", "/fans/luna.png", "/fans/leo.png"],
+      },
+    ],
+  },
+  {
+    name: "Olivia Chen",
+    handle: "@oliviachen",
+    avatar: "/avatars/olivia.png",
+    verified: true,
+    status: "active",
+    followers: 8900,
+    earnings: 2100,
+    bio: "Olivia posts exclusive acting workshops and live Q&As.",
+    category: "Acting",
+    drops: [
+      {
+        title: "Live Acting Workshop",
+        description: "Join Olivia for a live, interactive acting class.",
+        image: "/drops/acting-workshop.jpg",
+        price: 11,
+        status: "active",
+        timeLeft: "6:10 left",
+        slotsLeft: "Only 7 spots left!",
+        unlockCount: 53,
+        reactionPreview: ["/fans/leo.png", "/fans/olivia.png", "/fans/daniel.png"],
+      },
+      {
+        title: "Q&A: Breaking Into Film",
+        description: "Olivia answers your questions about the film industry.",
+        image: "/drops/qa-film.jpg",
+        price: 8,
+        status: "active",
+        timeLeft: "10:00 left",
+        slotsLeft: "Only 9 spots left!",
+        unlockCount: 41,
+        reactionPreview: ["/fans/luna.png", "/fans/olivia.png", "/fans/leo.png"],
+      },
+      {
+        title: "Script Read-Along",
+        description: "Exclusive script reading with Olivia and friends.",
+        image: "/drops/script-read.jpg",
+        price: 7,
+        status: "expired",
+        timeLeft: "-",
+        slotsLeft: "Expired",
+        unlockCount: 36,
+        reactionPreview: ["/fans/daniel.png", "/fans/luna.png", "/fans/leo.png"],
+      },
+    ],
+  },
 ];
 
-function randomFrom<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+export const fanVault = [
+  {
+    title: "Studio Confession",
+    thumbnail: "/drops/studio-confession.jpg",
+    creator: "Alex Rivera",
+    date: "2024-05-01",
+    status: "unlocked"
+  },
+  {
+    title: "BTS Session",
+    thumbnail: "/drops/bts-session.jpg",
+    creator: "Camila Sato",
+    date: "2024-04-28",
+    status: "missed"
+  },
+];
 
-function randomTags(): string[] {
-  const shuffled = TAGS.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, Math.floor(Math.random() * 3) + 2);
-}
+export const dashboardMetrics = {
+  totalDrops: 8,
+  followers: 18300,
+  unlocks: 1240,
+  earnings: 5400,
+  growth: {
+    drops: "+12%",
+    followers: "+4.2%",
+    unlocks: "+3.1%",
+    earnings: "+$420"
+  },
+  recentActivity: [
+    { dropTitle: "Studio Confession", unlocks: 88, earnings: 550, status: "expiring" },
+    { dropTitle: "BTS Session", unlocks: 122, earnings: 820, status: "sold out" },
+  ]
+};
 
-function randomType(): "image" | "video" | "audio" {
-  const types = ["image", "video", "audio"];
-  return types[Math.floor(Math.random() * types.length)] as any;
-}
-
-function mediaUrl(type: "image" | "video" | "audio", sig: number): string {
-  if (type === "image") return `https://source.unsplash.com/random/600x600?nude,art,editorial&sig=${sig}`;
-  if (type === "video") return "https://www.w3schools.com/html/mov_bbb.mp4";
-  return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-}
-
-function avatarUrl(sig: number): string {
-  return `https://source.unsplash.com/random/100x100?face&sig=${sig}`;
-}
-
-function bannerUrl(sig: number): string {
-  return `https://source.unsplash.com/random/600x300?cyberpunk&sig=${sig}`;
-}
-
-function randomDescription(): string {
-  const intros = [
-    "Unlock a new side of me.",
-    "A tease you won't forget.",
-    "Step inside my world.",
-    "For your eyes only.",
-    "A drop you can't miss.",
-    "Art meets attitude.",
-    "Raw, real, and exclusive.",
-    "Just dropped. Get it first.",
-    "A taste of what's next.",
-    "Premium content, just for you."
-  ];
-  return `${randomFrom(intros)} ${randomFrom(intros)}`;
-}
-
-// 1. Creators
-export const mockCreators: Creator[] = Array.from({ length: 10 }).map((_, i) => ({
-  id: `creator${i + 1}`,
-  name: `Creator ${i + 1}`,
-  avatar: avatarUrl(i + 1),
-  banner: bannerUrl(i + 1),
-  bio: BIOS[i % BIOS.length],
-}));
-
-// 2. Drops
-const now = Date.now();
-export const mockDrops: Drop[] = mockCreators.flatMap((creator, i) => {
-  // 4 older drops (3-10 days ago)
-  const oldDrops = Array.from({ length: 4 }).map((_, j) => {
-    const type = randomType();
-    const createdAt = new Date(now - ((3 + Math.floor(Math.random() * 7)) * 24 * 60 * 60 * 1000) - j * 1000000).toISOString();
-    const expiresAt = new Date(new Date(createdAt).getTime() + (2 + Math.floor(Math.random() * 2)) * 24 * 60 * 60 * 1000).toISOString();
-    return {
-      id: `drop${i * 5 + j + 1}`,
-      creatorId: creator.id,
-      title: `Drop ${i * 5 + j + 1} by ${creator.name}`,
-      type,
-      mediaUrl: mediaUrl(type, i * 5 + j + 1),
-      description: randomDescription(),
-      unlockLimit: 20 + Math.floor(Math.random() * 81),
-      unlockedBy: [],
-      createdAt,
-      expiresAt,
-      tags: randomTags(),
-    };
-  });
-  // 1 recent drop (within 30 min, expires <24h)
-  const type = randomType();
-  const createdAt = new Date(now - Math.floor(Math.random() * 30) * 60 * 1000).toISOString();
-  const expiresAt = new Date(new Date(createdAt).getTime() + (6 + Math.floor(Math.random() * 16)) * 60 * 60 * 1000).toISOString();
-  const recentDrop = {
-    id: `drop${i * 5 + 5}`,
-    creatorId: creator.id,
-    title: `Recent Drop by ${creator.name}`,
-    type,
-    mediaUrl: mediaUrl(type, i * 5 + 5),
-    description: randomDescription(),
-    unlockLimit: 20 + Math.floor(Math.random() * 81),
-    unlockedBy: [],
-    createdAt,
-    expiresAt,
-    tags: randomTags(),
-  };
-  return [...oldDrops, recentDrop];
-}); 
+export const fans = [
+  {
+    name: "DanielC",
+    avatar: "/fans/daniel.png",
+    likes: 24,
+    shares: 8,
+    followers: 120,
+    unlockHistory: ["Studio Confession", "VIP Soundcheck"]
+  },
+  {
+    name: "Luna1995",
+    avatar: "/fans/luna.png",
+    likes: 31,
+    shares: 12,
+    followers: 210,
+    unlockHistory: ["Early Preview: Neon Nights", "Meal Prep Secrets"]
+  },
+  {
+    name: "Olivia Chen",
+    avatar: "/fans/olivia.png",
+    likes: 19,
+    shares: 5,
+    followers: 98,
+    unlockHistory: ["Live Acting Workshop", "Script Read-Along"]
+  },
+  {
+    name: "LeoX",
+    avatar: "/fans/leo.png",
+    likes: 27,
+    shares: 10,
+    followers: 150,
+    unlockHistory: ["NFT Alpha Leak", "Crypto Portfolio Reveal"]
+  },
+]; 

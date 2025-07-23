@@ -55,7 +55,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950" style={{ fontFamily: 'Aeonik, system-ui, -apple-system, sans-serif' }}>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950 text-premium">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -107,7 +107,7 @@ export default function SettingsPage() {
             className="px-4 space-y-6"
           >
             <div className="glass-premium rounded-xl p-4 border border-gray-700/50">
-              <h3 className="font-black text-white uppercase tracking-wider mb-4">
+              <h3 className="font-medium text-premium capitalize tracking-wider mb-4">
                 Profile Information
               </h3>
               <form onSubmit={handleProfileSubmit} className="space-y-4">
@@ -197,7 +197,7 @@ export default function SettingsPage() {
             className="px-4 space-y-6"
           >
             <div className="glass-premium rounded-xl p-4 border border-gray-700/50">
-              <h3 className="font-black text-white uppercase tracking-wider mb-4">
+              <h3 className="font-medium text-premium capitalize tracking-wider mb-4">
                 Change Password
               </h3>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
@@ -247,13 +247,13 @@ export default function SettingsPage() {
             </div>
 
             <div className="glass-premium rounded-xl p-4 border border-gray-700/50">
-              <h3 className="font-black text-white uppercase tracking-wider mb-4">
+              <h3 className="font-medium text-premium capitalize tracking-wider mb-4">
                 Two-Factor Authentication
               </h3>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-white">2FA Status</div>
-                  <div className="text-gray-400 text-sm">Add an extra layer of security</div>
+                  <div className="font-medium text-premium">2FA Status</div>
+                  <div className="text-gray-400 text-sm text-secondary">Add an extra layer of security</div>
                 </div>
                 <button className="bg-gray-800/50 text-white font-medium py-2 px-4 rounded-lg border border-gray-700 hover:border-orange-400 transition-all duration-300">
                   Enable
@@ -272,17 +272,17 @@ export default function SettingsPage() {
             className="px-4 space-y-6"
           >
             <div className="glass-premium rounded-xl p-4 border border-gray-700/50">
-              <h3 className="font-black text-white uppercase tracking-wider mb-4">
+              <h3 className="font-medium text-premium capitalize tracking-wider mb-4">
                 Notification Preferences
               </h3>
               <div className="space-y-4">
                 {Object.entries(notifications).map(([key, value]) => (
                   <div key={key} className="flex items-center justify-between">
                     <div>
-                      <div className="font-bold text-white">
+                      <div className="font-medium text-premium">
                         {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                       </div>
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-sm text-secondary">
                         Receive notifications for {key.replace(/([A-Z])/g, ' $1').toLowerCase()}
                       </div>
                     </div>
@@ -312,7 +312,7 @@ export default function SettingsPage() {
             className="px-4 space-y-6"
           >
             <div className="glass-premium rounded-xl p-4 border border-gray-700/50">
-              <h3 className="font-black text-white uppercase tracking-wider mb-4">
+              <h3 className="font-medium text-premium capitalize tracking-wider mb-4">
                 Account Actions
               </h3>
               <div className="space-y-4">

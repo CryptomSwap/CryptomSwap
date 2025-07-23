@@ -1,4 +1,4 @@
-// File: C:\Users\User\peepz\src\app\creator\upload\page.tsx
+// File: C:\Users\User\Desktop\CryptomSwap\src\app\creator\upload\page.tsx
 import * as entry from '../../../../../src/app/creator/upload/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

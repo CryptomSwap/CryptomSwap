@@ -62,7 +62,7 @@ export default function WelcomePage() {
           className="mb-12 flex justify-center"
         >
           <motion.h1 
-            className="text-4xl md:text-5xl font-black tracking-[0.2em] uppercase"
+            className="text-4xl md:text-5xl font-black tracking-[0.2em] uppercase peepz-logo"
             animate={{
               scale: [1, 1.05, 1],
               filter: [
@@ -77,7 +77,7 @@ export default function WelcomePage() {
               ease: "easeInOut"
             }}
           >
-            <span style={{ color: '#FFA31A' }}>
+            <span style={{ color: '#ffa31a' }}>
               PEEPZ
             </span>
           </motion.h1>

@@ -67,14 +67,15 @@ export default function StatsWidget({
 
       {/* Value */}
       <motion.div 
-        className={`text-2xl font-bold mb-1 ${getColorClasses()}`}
+        className={`text-2xl font-medium text-premium mb-1 ${getColorClasses()}`}
         whileHover={{ scale: 1.1 }}
+        style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}
       >
         {value}
       </motion.div>
 
       {/* Label */}
-      <div className="text-xs text-gray-400 uppercase tracking-widest text-center mb-2">
+      <div className="text-xs text-secondary capitalize text-center mb-2" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>
         {label}
       </div>
 

@@ -11,7 +11,7 @@ import { isDropUnlocked, getUnlockedDrops } from "@/lib/storage";
 
 export default function Page() {
   const router = useRouter();
-  const [user, setUser] = useState(getCurrentUser());
+  const [user, setUser] = useState<any>(null);
   const [unlockedDrops, setUnlockedDrops] = useState<any[]>([]);
   const [showEditMode, setShowEditMode] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -26,6 +26,10 @@ export default function Page() {
   const [filterDate, setFilterDate] = useState('all');
 
   useEffect(() => {
+    // Load user data on client side
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+    
     // Load unlocked drops
     const unlocked = getUnlockedDrops();
     const dropIds = Object.keys(unlocked);
@@ -88,7 +92,8 @@ export default function Page() {
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-bold text-2xl mb-6 text-text"
+          className="text-2xl mb-6 text-premium font-medium capitalize"
+          style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}
         >
           Your Profile
         </motion.h1>
@@ -100,30 +105,31 @@ export default function Page() {
           className="bg-surface rounded-xl p-4 mb-6"
         >
           <div className="flex items-center mb-4">
-            <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center text-2xl font-bold text-black mr-4">
+            <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center text-2xl font-medium text-black mr-4" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>
               {user.displayName.charAt(0)}
             </div>
             <div>
-              <h2 className="font-bold text-lg text-text">{user.displayName}</h2>
-              <p className="text-sm text-gray-400">@{user.username}</p>
+              <h2 className="text-lg text-premium font-medium capitalize" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>{user.displayName}</h2>
+              <p className="text-sm text-secondary">@{user.username}</p>
             </div>
           </div>
           
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="text-center">
-              <div className="text-xl font-bold text-accent-orange">{unlockedDrops.length}</div>
-              <div className="text-xs text-gray-400">Drops Unlocked</div>
+              <div className="text-xl font-medium text-accent-orange" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>{unlockedDrops.length}</div>
+              <div className="text-xs text-secondary">Drops Unlocked</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-accent-orange">{referralCount}</div>
-              <div className="text-xs text-gray-400">Referrals</div>
+              <div className="text-xl font-medium text-accent-orange" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>{referralCount}</div>
+              <div className="text-xs text-secondary">Referrals</div>
             </div>
           </div>
 
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent-orange text-black font-bold py-2 rounded-full"
+            className="w-full bg-accent-orange text-black font-medium capitalize py-2 rounded-full"
+            style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}
             onClick={() => setShowEditMode(!showEditMode)}
           >
             {showEditMode ? 'Cancel Edit' : 'Edit Profile'}

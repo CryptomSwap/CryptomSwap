@@ -69,7 +69,7 @@ export default function BillingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950" style={{ fontFamily: 'Aeonik, system-ui, -apple-system, sans-serif' }}>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950 text-premium">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

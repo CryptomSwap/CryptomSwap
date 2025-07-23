@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
-  const [user, setUser] = useState(getCurrentUser());
+  const [user, setUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   
   const [profile, setProfile] = useState({
-    displayName: user?.displayName || '',
-    username: user?.username || '',
-    email: user?.email || '',
+    displayName: '',
+    username: '',
+    email: '',
     bio: 'Luxury content enthusiast and exclusive drop collector.',
   });
 
@@ -28,6 +28,19 @@ export default function Page() {
   });
 
   useEffect(() => {
+    // Load user data on client side
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+    
+    if (currentUser) {
+      setProfile(prev => ({
+        ...prev,
+        displayName: currentUser.displayName || '',
+        username: currentUser.username || '',
+        email: currentUser.email || '',
+      }));
+    }
+    
     // Load saved settings
     const savedSettings = getSettings();
     if (savedSettings.notifications) {
