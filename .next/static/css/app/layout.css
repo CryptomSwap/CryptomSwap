@@ -2052,6 +2052,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 163 26 / var(--tw-text-opacity, 1));
 }
+.text-\[\#ffa31a\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 163 26 / var(--tw-text-opacity, 1));
+}
 .text-accent-orange {
   --tw-text-opacity: 1;
   color: rgb(255 153 0 / var(--tw-text-opacity, 1));
@@ -2138,10 +2142,6 @@ video {
 .text-yellow-900 {
   --tw-text-opacity: 1;
   color: rgb(113 63 18 / var(--tw-text-opacity, 1));
-}
-.text-\[\#ffa31a\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 163 26 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;

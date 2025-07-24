@@ -1,3 +1,8 @@
 {
-  "/creator/upload/page": "app/creator/upload/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/fan/explore/page": "app/fan/explore/page.js",
+  "/fan/following/page": "app/fan/following/page.js",
+  "/fan/vault/page": "app/fan/vault/page.js",
+  "/fan/invite/page": "app/fan/invite/page.js",
+  "/fan/profile/page": "app/fan/profile/page.js"
 }
