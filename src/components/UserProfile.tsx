@@ -30,7 +30,7 @@ function StatBlock({ label, value, trend }: { label: string; value: React.ReactN
 
 function DropTile({ drop }: { drop: any }) {
   return (
-    <div className="bg-white/5 rounded-xl overflow-hidden flex flex-col items-center shadow hover:shadow-orange-500/30 transition cursor-pointer group">
+            <div className="bg-white/5 rounded-xl overflow-hidden flex flex-col items-center shadow hover:shadow-purple-500/30 transition cursor-pointer group">
       <div className="w-full aspect-square bg-black/30 flex items-center justify-center">
         {drop?.thumbnail ? (
           <img src={drop.thumbnail} alt={drop.title} className="w-full h-full object-cover" />
@@ -53,7 +53,7 @@ export default function UserProfile() {
     <div className="min-h-screen bg-[#0d0d0d] text-premium">
       {/* Top Profile Card */}
       <div className="flex items-center gap-4 px-4 mt-4">
-        <img src={creator.avatar} className="w-16 h-16 rounded-full border-2 border-orange-500" alt="avatar" />
+                        <img src={creator.avatar} className="w-16 h-16 rounded-full border-2 border-purple-500" alt="avatar" />
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-premium text-lg font-medium capitalize" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>{creator.name}</h2>
@@ -89,7 +89,7 @@ export default function UserProfile() {
         </div>
       )}
       {/* Floating Add Drop Button */}
-      <button className="fixed bottom-20 right-6 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full w-16 h-16 flex items-center justify-center shadow-xl hover:scale-110 transition z-50">
+              <button className="fixed bottom-20 right-6 bg-gradient-to-r from-purple-700 to-purple-600 rounded-full w-16 h-16 flex items-center justify-center shadow-xl hover:scale-110 transition z-50">
         <span className="text-white text-3xl">+</span>
       </button>
     </div>

@@ -24,7 +24,7 @@ export default function BackButton({ className = "", onClick }: BackButtonProps)
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={handleClick}
-      className={`w-10 h-10 rounded-full bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 hover:border-orange-500/50 flex items-center justify-center transition-all duration-300 hover:bg-gray-800/70 ${className}`}
+              className={`w-10 h-10 rounded-full bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 flex items-center justify-center transition-all duration-300 hover:bg-gray-800/70 ${className}`}
     >
       <svg
         width="20"

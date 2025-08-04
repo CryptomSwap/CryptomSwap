@@ -59,7 +59,7 @@ const RadialCountdown = ({ percent, children }: { percent: number, children?: Re
         r={normalizedRadius}
       />
       <circle
-        stroke="#FFA31A"
+        stroke="#581c87"
         fill="none"
         strokeWidth={stroke}
         strokeDasharray={circumference}
@@ -148,7 +148,7 @@ export default function DropDetailPage() {
   const [underlineIn, setUnderlineIn] = useState(false);
   useEffect(() => { setUnderlineIn(true); }, []);
   // For countdown color
-  const countdownColor = countdownSec < 30 ? '#FF3B3B' : '#FFA31A';
+          const countdownColor = countdownSec < 30 ? '#FF3B3B' : '#581c87';
 
   // Add Like/Share state
   const [likeCount, setLikeCount] = useState(12500);
@@ -227,8 +227,8 @@ export default function DropDetailPage() {
               className="flex justify-center"
             >
             <div className="relative flex items-center justify-center">
-              <span className="absolute -inset-1 rounded-full ring-[3px] ring-orange-400/50 animate-pulse-slow" />
-              <span className="bg-gradient-to-r from-orange-400 to-orange-500 text-black text-xs font-black px-4 py-2 rounded-full animate-pulse-slow shadow-lg">
+                      <span className="absolute -inset-1 rounded-full ring-[3px] ring-purple-400/50 animate-pulse-slow" />
+        <span className="bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xs font-black px-4 py-2 rounded-full animate-pulse-slow shadow-lg">
                 🔥 Only {mockDrop.spotsLeft} spots left!
               </span>
               </div>
@@ -241,7 +241,7 @@ export default function DropDetailPage() {
               className="flex items-center space-x-4"
             >
             <div className="relative">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-orange-400 shadow-lg" style={{ boxShadow: '0 0 0 4px #FFA31A44' }}>
+              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-purple-400 shadow-lg" style={{ boxShadow: '0 0 0 4px #581c8744' }}>
                 <img
                   src={mockDrop.creatorImage}
                   alt={mockDrop.creator}
@@ -269,7 +269,7 @@ export default function DropDetailPage() {
                 {/* Extra shimmer highlight overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,white,transparent)] bg-[length:200%_100%] animate-shimmer opacity-20 blur-lg pointer-events-none"></div>
                 {/* Actual button */}
-                <button className="relative z-10 px-4 py-2 text-sm font-semibold text-white rounded-full bg-orange-500 hover:scale-105 transition-all duration-300 shadow-lg" onClick={() => router.push(`/creator/68a9d503-66ab-4809-a3ae-7b70cad9b202`)}>
+                <button className="relative z-10 px-4 py-2 text-sm font-semibold text-white rounded-full bg-purple-600 hover:scale-105 transition-all duration-300 shadow-lg" onClick={() => router.push(`/creator/68a9d503-66ab-4809-a3ae-7b70cad9b202`)}>
                   View Creator Profile
                 </button>
               </div>
@@ -288,7 +288,7 @@ export default function DropDetailPage() {
                 initial={{ scaleX: 0 }}
                 animate={underlineIn ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{ duration: 0.7, ease: 'easeInOut' }}
-                className="block h-1 mt-1 bg-gradient-to-r from-purple-600 to-orange-400 rounded-full w-2/3 origin-left"
+                className="block h-1 mt-1 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full w-2/3 origin-left"
               />
             </h1>
             {/* Quote Box */}
@@ -371,7 +371,7 @@ export default function DropDetailPage() {
         {/* Unlock Section */}
         <div className="w-full sticky bottom-0 pt-8 pb-4 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center mt-6">
           <motion.div
-            whileHover={{ scale: 1.05, boxShadow: '0 0 12px 4px #FFA31A99' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 0 12px 4px #581c8799' }}
             whileTap={{ scale: 0.97 }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -390,11 +390,11 @@ export default function DropDetailPage() {
               />
               <div className="relative w-full flex items-center justify-center" style={{ overflow: 'visible' }}>
                 {/* Glow effect */}
-                <div className="absolute inset-0 rounded-full blur-lg bg-gradient-to-r from-orange-500 to-purple-500 opacity-30 animate-pulse z-0"></div>
+                <div className="absolute inset-0 rounded-full blur-lg bg-gradient-to-r from-purple-600 to-purple-500 opacity-30 animate-pulse z-0"></div>
                 {/* Unlock button */}
                 <button
-                  className="relative z-10 w-full flex items-center justify-center px-6 py-4 rounded-full font-bold text-white bg-gradient-to-r from-yellow-400 to-purple-600 hover:scale-105 transition ring-2 ring-orange-400/50 ring-offset-2 ring-offset-black shadow-xl"
-                  style={{ boxShadow: '0 0 12px 4px #FFA31A99', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
+                  className="relative z-10 w-full flex items-center justify-center px-6 py-4 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:scale-105 transition ring-2 ring-purple-400/50 ring-offset-2 ring-offset-black shadow-xl"
+                  style={{ boxShadow: '0 0 12px 4px #581c8799', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
               onClick={handleUnlockNow}
               disabled={isUnlocked}
                 >
@@ -414,7 +414,7 @@ export default function DropDetailPage() {
                 ? "You now have exclusive access to this content"
                 : "Unlock to get exclusive access to this content"}
             </p>
-            <p className="text-xs text-orange-300 mt-1">
+            <p className="text-xs text-purple-300 mt-1">
               Only {mockDrop.spotsLeft} unlocks left · Disappears after 24h
             </p>
           </div>

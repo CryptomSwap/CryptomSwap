@@ -119,7 +119,7 @@ export default function Page() {
               disabled={isSubmitting}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-accent-orange text-black font-bold py-3 rounded-full disabled:opacity-50"
+              className="w-full bg-accent-orange text-white font-bold py-3 rounded-full disabled:opacity-50"
             >
               {isSubmitting ? 'Processing...' : 'Submit Code'}
             </motion.button>
@@ -188,7 +188,7 @@ export default function Page() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-accent-orange text-black font-bold py-2 px-6 rounded-full"
+                  className="bg-accent-orange text-white font-bold py-2 px-6 rounded-full"
                   onClick={() => setShowRewards(false)}
                 >
                   Claim Reward

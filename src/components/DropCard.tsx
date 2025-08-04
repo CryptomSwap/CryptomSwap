@@ -34,7 +34,7 @@ const RadialCountdown = ({ percent, children }: RadialCountdownProps) => {
         r={normalizedRadius}
       />
       <circle
-        stroke="#FFA31A"
+        stroke="#581c87"
         fill="none"
         strokeWidth={stroke}
         strokeDasharray={circumference}
@@ -42,7 +42,7 @@ const RadialCountdown = ({ percent, children }: RadialCountdownProps) => {
         cx={radius}
         cy={radius}
         r={normalizedRadius}
-        style={{ transition: 'stroke-dashoffset 1s linear', filter: 'drop-shadow(0 0 6px #FFA31A)' }}
+        style={{ transition: 'stroke-dashoffset 1s linear', filter: 'drop-shadow(0 0 6px #581c87)' }}
       />
       {children && (
         <foreignObject x={radius-12} y={radius-10} width={24} height={20}>
@@ -124,20 +124,20 @@ export default function DropCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 rounded-xl" />
       </div>
       {/* FOMO Tag */}
-      <span className={`absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full z-20 shadow-md animate-pulse ${(spotsLeft ?? 0) < 5 ? 'animate-shake' : ''}`}>
+              <span className={`absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20 shadow-md animate-pulse ${(spotsLeft ?? 0) < 5 ? 'animate-shake' : ''}`}>
         🔥 Only {spotsLeft ?? 0} left!
       </span>
       {/* Radial Countdown (Top-right) */}
       <div className="absolute top-3 right-3 z-20">
         <RadialCountdown percent={countdownSec/154}>
-          <span className="text-xs font-bold text-orange-300 drop-shadow">{countdownStr}</span>
+          <span className="text-xs font-bold text-purple-300 drop-shadow">{countdownStr}</span>
         </RadialCountdown>
       </div>
       {/* Title + Creator + Timer (Bottom-left) */}
       <div className="absolute bottom-5 left-4 z-30 text-white drop-shadow-md">
         <p className="font-bold text-lg">{title.replace(/\w\S*/g, (w) => w.replace(/^./, c => c.toUpperCase()))}</p>
         <p className="text-sm text-white/70 flex items-center">{creator}<CreatorSeal /></p>
-        <p className="text-sm text-orange-400 mt-1">{countdownStr}</p>
+        <p className="text-sm text-purple-400 mt-1">{countdownStr}</p>
       </div>
       {/* Like & Share (Bottom-right) */}
       <div className="absolute bottom-4 right-4 flex items-center space-x-3 z-30">

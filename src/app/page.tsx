@@ -127,7 +127,9 @@ const FingerScanIcon = ({ onClick }: { onClick: () => void }) => {
           icon={faFingerprint} 
           style={{ 
             fontSize: '45px',
-            color: '#FFA500'
+            color: '#ffffff',
+            filter: 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))',
+            transition: 'all 0.3s ease'
           }}
         />
         
@@ -149,7 +151,7 @@ const FingerScanIcon = ({ onClick }: { onClick: () => void }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="text-[#FFA31A] text-sm font-medium mt-3 text-center"
+        className="text-[#581c87] text-sm font-medium mt-3 text-center"
         style={{ fontFamily: 'Aeonik, system-ui, -apple-system, sans-serif' }}
       >
         Tap to Scan
@@ -187,7 +189,9 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center relative">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center relative" style={{
+      background: 'radial-gradient(circle at center, #2a0030 0%, #1a001f 100%)'
+    }}>
       {/* Main content */}
       <div className="text-center z-10 px-4 w-full max-w-md">
         {/* Welcome Message */}
@@ -200,7 +204,7 @@ export default function Page() {
                transition={{ duration: 3, delay: 0.3, ease: "easeOut" }}
                className="mb-8"
              >
-              <h2 className="text-lg font-sacrifice text-transparent bg-clip-text bg-gradient-to-r from-[#ffa31a] via-[#8A00D4] to-[#4A0080] tracking-wide">
+              <h2 className="text-lg font-sacrifice text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#581c87] tracking-wide">
                 Welcome, ADMIN.
               </h2>
             </motion.div>
@@ -215,7 +219,12 @@ export default function Page() {
           className="mb-4"
         >
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.2em] uppercase text-center peepz-logo">
-            <span style={{ color: '#ffa31a' }}>
+            <span style={{ 
+              color: '#ffffff',
+              textShadow: '0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3)',
+              fontWeight: 900,
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
+            }}>
               PEEPZ
             </span>
           </h1>

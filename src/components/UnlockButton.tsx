@@ -26,8 +26,8 @@ export default function UnlockButton({
 
   const getVariantClasses = () => {
     switch (variant) {
-      case 'primary': return 'bg-gradient-to-r from-accent-orange to-accent-orange text-black';
-      case 'secondary': return 'bg-accent-orange text-black';
+          case 'primary': return 'bg-gradient-to-r from-accent-orange to-accent-orange text-white';
+    case 'secondary': return 'bg-accent-orange text-white';
     }
   };
 

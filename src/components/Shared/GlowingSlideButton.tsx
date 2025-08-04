@@ -28,9 +28,15 @@ const GlowingSlideButton: React.FC<GlowingSlideButtonProps> = ({ onSlide, loadin
   return (
     <div className="w-full select-none" ref={trackRef} aria-label={label || "Slide to login"}>
       <motion.div
-        className="relative h-14 bg-gradient-to-r from-[#FF9900] to-[#8A00D4] rounded-full flex items-center px-2 shadow-lg overflow-hidden group"
-        whileHover={{ boxShadow: "0 0 32px 8px #FF9900, 0 0 32px 8px #8A00D4" }}
-        style={{ minHeight: 56 }}
+        className="relative h-14 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full flex items-center px-2 shadow-lg overflow-hidden group"
+        whileHover={{ 
+          scale: 1.02,
+          boxShadow: "0 0 32px 8px rgba(168, 85, 247, 0.4), 0 0 16px 4px rgba(168, 85, 247, 0.2)" 
+        }}
+        style={{ 
+          minHeight: 56,
+          background: 'linear-gradient(90deg, #a855f7 0%, #7c3aed 100%)'
+        }}
       >
         {/* Glowing trail background on hover */}
         <motion.div
@@ -39,9 +45,10 @@ const GlowingSlideButton: React.FC<GlowingSlideButtonProps> = ({ onSlide, loadin
           animate={{ opacity: dragging ? 0.5 : 0.2 }}
           transition={{ duration: 0.3 }}
           style={{
-            background: "radial-gradient(circle at 20% 50%, #FF9900 0%, transparent 70%), radial-gradient(circle at 80% 50%, #8A00D4 0%, transparent 70%)"
+            background: "radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 70%), radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.3) 0%, transparent 70%)"
           }}
         />
+        
         {/* Centered label */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
           <span className="text-white font-bold uppercase tracking-wider text-sm">
@@ -71,6 +78,7 @@ const GlowingSlideButton: React.FC<GlowingSlideButtonProps> = ({ onSlide, loadin
             </AnimatePresence>
           </span>
         </div>
+        
         <motion.div
           drag="x"
           dragConstraints={trackRef}
@@ -80,9 +88,14 @@ const GlowingSlideButton: React.FC<GlowingSlideButtonProps> = ({ onSlide, loadin
           animate={{ scale: dragging ? 0.97 : 1 }}
           className={`relative z-20 flex items-center justify-center w-12 h-12 bg-white/20 rounded-full shadow-lg cursor-pointer transition-transform duration-150 ${completed ? "scale-90" : ""}`}
           whileTap={{ scale: 0.92 }}
+          whileHover={{ scale: 1.05 }}
           tabIndex={0}
           aria-label="Slide to login"
-          style={{ minHeight: 44, minWidth: 44 }}
+          style={{ 
+            minHeight: 44, 
+            minWidth: 44,
+            boxShadow: '0 0 15px rgba(168, 85, 247, 0.3)'
+          }}
           onMouseDown={() => setPressed(true)}
           onMouseUp={() => setPressed(false)}
           onTouchStart={() => setPressed(true)}
@@ -103,7 +116,11 @@ const GlowingSlideButton: React.FC<GlowingSlideButtonProps> = ({ onSlide, loadin
             <motion.svg
               width="28" height="28" viewBox="0 0 24 24" fill="none"
               initial={{ rotate: 0 }}
-              animate={{ rotate: dragging ? 90 : 0, scale: dragging ? 1.2 : 1, filter: dragging ? "drop-shadow(0 0 8px #FF9900)" : "none" }}
+              animate={{ 
+                rotate: dragging ? 90 : 0, 
+                scale: dragging ? 1.2 : 1, 
+                filter: dragging ? "drop-shadow(0 0 8px rgba(168, 85, 247, 0.8))" : "none" 
+              }}
               whileHover={{ rotate: [0, 15, -15, 0], transition: { repeat: Infinity, duration: 1 } }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >

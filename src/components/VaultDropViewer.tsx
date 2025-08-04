@@ -34,7 +34,7 @@ export default function VaultDropViewer({ drop, onClose }: VaultDropViewerProps)
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
             className="relative w-full max-w-lg mx-auto bg-white/5 backdrop-blur-md border border-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center"
-            style={{ boxShadow: '0 0 32px 4px #8A00D4, 0 0 16px 2px #FF9900' }}
+            style={{ boxShadow: '0 0 32px 4px #8A00D4, 0 0 16px 2px #581c87' }}
           >
             {/* Close button */}
             <button
@@ -45,7 +45,7 @@ export default function VaultDropViewer({ drop, onClose }: VaultDropViewerProps)
               ×
             </button>
             {/* Confirmation */}
-            <div className="text-2xl font-black text-[#FF9900] mb-2 drop-shadow-[0_0_8px_#FF9900]">✅ You unlocked '{drop.title}'</div>
+            <div className="text-2xl font-black text-[#581c87] mb-2 drop-shadow-[0_0_8px_#581c87]">✅ You unlocked '{drop.title}'</div>
             {/* Media */}
             <DropMediaViewer type={drop.type} mediaUrl={drop.mediaUrl} />
             {/* Metadata */}
@@ -65,7 +65,7 @@ export default function VaultDropViewer({ drop, onClose }: VaultDropViewerProps)
             {drop.description && (
               <div className="w-full mt-2">
                 <button
-                  className="text-xs text-[#FF9900] underline font-bold mb-1"
+                  className="text-xs text-[#581c87] underline font-bold mb-1"
                   onClick={() => setDescOpen(o => !o)}
                 >
                   {descOpen ? "Hide Description" : "Show Description"}

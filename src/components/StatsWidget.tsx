@@ -21,8 +21,8 @@ export default function StatsWidget({
 }: StatsWidgetProps) {
   const getColorClasses = () => {
     switch (color) {
-      case 'orange': return 'text-accent-orange';
-      case 'purple': return 'text-accent-orange';
+          case 'orange': return 'text-accent-orange';
+    case 'purple': return 'text-accent-purple';
       case 'green': return 'text-green-400';
       case 'blue': return 'text-blue-400';
     }

@@ -26,9 +26,9 @@ export default function GlowingButton({
   };
 
   const variantClasses = {
-    primary: "text-black font-black",
+    primary: "text-white font-black",
     secondary: "text-white font-black",
-    "full-width": "w-full text-black font-black"
+    "full-width": "w-full text-white font-black"
   };
 
   return (
@@ -43,12 +43,12 @@ export default function GlowingButton({
         disabled:opacity-50 disabled:cursor-not-allowed
       `}
       style={{ 
-        background: 'linear-gradient(135deg, #FFA31A, #FFA31A)',
-        boxShadow: '0 8px 32px rgba(255, 163, 26, 0.3)'
+        background: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+        boxShadow: '0 8px 32px rgba(168, 85, 247, 0.3)'
       }}
       whileHover={{ 
         scale: 1.05,
-        boxShadow: "0 25px 50px rgba(255, 163, 26, 0.4)"
+        boxShadow: "0 25px 50px rgba(168, 85, 247, 0.4)"
       }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function GlowingButton({
       {/* Glow effect */}
       <motion.div
         className="absolute inset-0 rounded-full blur-xl opacity-50"
-        style={{ background: 'linear-gradient(135deg, #FFA31A, #FFA31A)' }}
+        style={{ background: 'linear-gradient(135deg, #a855f7, #7c3aed)' }}
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.5, 0.8, 0.5],

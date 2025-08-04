@@ -60,8 +60,8 @@ const mockDrops = [
 ];
 
 const filterOptions = [
-  { id: "trending", label: "Trending", color: "orange" },
-          { id: "new", label: "New", color: "orange" },
+    { id: "trending", label: "Trending", color: "purple" },
+  { id: "new", label: "New", color: "purple" },
   { id: "free", label: "Free", color: "gray" }
 ];
 
@@ -125,10 +125,10 @@ export default function ExplorePage() {
               onClick={() => setSelectedFilter(filter.id)}
               className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
                 selectedFilter === filter.id
-                  ? filter.color === "orange"
-                    ? "bg-accent-orange text-black shadow-lg"
-                                    : filter.color === "orange"
-                ? "bg-accent-orange text-black shadow-lg"
+                          ? filter.color === "purple"
+        ? "bg-accent-purple text-white shadow-lg"
+        : filter.color === "purple"
+        ? "bg-accent-purple text-white shadow-lg"
                     : "bg-gray-600 text-white shadow-lg"
                   : "bg-surface/50 text-gray-400 border border-white/10"
               }`}

@@ -2,8 +2,8 @@
 import React from "react";
 
 const filters = [
-  { label: 'Trending', color: 'bg-accent-orange text-black' },
-  { label: 'New', color: 'bg-accent-orange text-black' },
+  { label: 'Trending', color: 'bg-accent-orange text-white' },
+  { label: 'New', color: 'bg-accent-orange text-white' },
 ];
 
 export default function FilterPills({ selected, onSelect }: { selected: string; onSelect: (label: string) => void }) {

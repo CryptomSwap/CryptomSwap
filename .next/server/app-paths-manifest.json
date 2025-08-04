@@ -1,8 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/fan/explore/page": "app/fan/explore/page.js",
-  "/fan/following/page": "app/fan/following/page.js",
-  "/fan/vault/page": "app/fan/vault/page.js",
-  "/fan/invite/page": "app/fan/invite/page.js",
-  "/fan/profile/page": "app/fan/profile/page.js"
+  "/creator/page": "app/creator/page.js",
+  "/creator/analytics/page": "app/creator/analytics/page.js",
+  "/creator/profile/page": "app/creator/profile/page.js",
+  "/creator/referrals/page": "app/creator/referrals/page.js",
+  "/page": "app/page.js"
 }

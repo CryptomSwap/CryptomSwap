@@ -105,7 +105,7 @@ export default function Page() {
           className="bg-surface rounded-xl p-4 mb-6"
         >
           <div className="flex items-center mb-4">
-            <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center text-2xl font-medium text-black mr-4" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>
+            <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center text-2xl font-medium text-white mr-4" style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}>
               {user.displayName.charAt(0)}
             </div>
             <div>
@@ -128,7 +128,7 @@ export default function Page() {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent-orange text-black font-medium capitalize py-2 rounded-full"
+            className="w-full bg-accent-orange text-white font-medium capitalize py-2 rounded-full"
             style={{ letterSpacing: '0.2px', lineHeight: 1.4 }}
             onClick={() => setShowEditMode(!showEditMode)}
           >
@@ -216,7 +216,7 @@ export default function Page() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-4 bg-accent-orange text-black font-bold py-2 px-4 rounded-full"
+                  className="mt-4 bg-accent-orange text-white font-bold py-2 px-4 rounded-full"
                   onClick={() => router.push('/fan/explore')}
                 >
                   Explore Drops
@@ -230,7 +230,7 @@ export default function Page() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full bg-accent-orange text-black font-bold py-2 rounded-full mb-4 mt-2"
+          className="w-full bg-accent-orange text-white font-bold py-2 rounded-full mb-4 mt-2"
           onClick={() => router.push('/fan/vault')}
         >
           Go to Vault

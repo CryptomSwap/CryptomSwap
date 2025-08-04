@@ -34,7 +34,7 @@ export default function DropMediaViewer({ type, mediaUrl }: DropMediaViewerProps
         <div className="w-full max-w-lg rounded-2xl shadow-2xl border-4 border-[#8A00D4] bg-black flex flex-col items-center p-6">
           <audio src={mediaUrl} controls className="w-full" />
           {/* Placeholder for waveform animation */}
-          <div className="mt-2 w-full h-6 bg-gradient-to-r from-[#8A00D4] to-[#FF9900] rounded-full opacity-40 animate-pulse" />
+          <div className="mt-2 w-full h-6 bg-gradient-to-r from-[#8A00D4] to-[#581c87] rounded-full opacity-40 animate-pulse" />
         </div>
       )}
     </motion.div>

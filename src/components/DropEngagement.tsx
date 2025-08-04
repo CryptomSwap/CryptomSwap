@@ -35,15 +35,15 @@ export default function DropEngagement({ dropId }: DropEngagementProps) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mx-auto my-4 max-w-lg w-full bg-white/10 backdrop-blur-md rounded-xl p-4 shadow-lg border border-[#FF9900] flex flex-col gap-4"
-      style={{ boxShadow: "0 0 16px 2px #FF9900, 0 0 8px 1px #8A00D4" }}
+              className="mx-auto my-4 max-w-lg w-full bg-white/10 backdrop-blur-md rounded-xl p-4 shadow-lg border border-[#581c87] flex flex-col gap-4"
+        style={{ boxShadow: "0 0 16px 2px #581c87, 0 0 8px 1px #8A00D4" }}
     >
       {/* Emoji Reactions */}
       <div className="flex justify-center gap-6 mb-2">
         {EMOJIS.map(({ emoji, key }) => (
           <button
             key={key}
-            className="text-2xl md:text-3xl p-2 rounded-full bg-black/30 border-2 border-transparent hover:border-[#FF9900] shadow hover:scale-110 transition-all"
+            className="text-2xl md:text-3xl p-2 rounded-full bg-black/30 border-2 border-transparent hover:border-[#581c87] shadow hover:scale-110 transition-all"
             onClick={() => handleReact(key)}
           >
             <span>{emoji}</span>
@@ -58,10 +58,10 @@ export default function DropEngagement({ dropId }: DropEngagementProps) {
           value={comment}
           onChange={e => setComment(e.target.value)}
           placeholder="Leave a comment..."
-          className="flex-1 rounded-full px-4 py-2 bg-black/40 text-white border border-white/20 focus:outline-none focus:border-[#FF9900]"
+          className="flex-1 rounded-full px-4 py-2 bg-black/40 text-white border border-white/20 focus:outline-none focus:border-[#581c87]"
         />
         <button
-          className="bg-[#FF9900] text-black font-bold px-4 py-2 rounded-full hover:bg-orange-400 transition"
+          className="bg-[#581c87] text-white font-bold px-4 py-2 rounded-full hover:bg-purple-600 transition"
           onClick={() => setComment("")}
         >
           Send
@@ -69,7 +69,7 @@ export default function DropEngagement({ dropId }: DropEngagementProps) {
       </div>
       {/* Copy Link */}
       <button
-        className="mt-2 text-xs text-[#FF9900] underline font-bold self-end"
+        className="mt-2 text-xs text-[#581c87] underline font-bold self-end"
         onClick={handleCopy}
       >
         {copied ? "Link Copied!" : "Copy Link"}

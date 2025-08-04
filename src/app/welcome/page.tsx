@@ -19,30 +19,28 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-between relative overflow-hidden py-8">
-      {/* Premium gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-[#0F0F0F] to-[#1A1A1A]"></div>
-      
+    <div className="min-h-screen bg-background relative overflow-hidden" style={{
+      background: 'radial-gradient(circle at center, #2a0030 0%, #1a001f 100%)'
+    }}>
       {/* Animated luxury background elements */}
       <motion.div
-        className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-accent-orange/20 to-accent-orange/20 rounded-full blur-3xl"
+        className="absolute top-20 left-20 w-60 h-60 bg-gradient-to-br from-purple-600/10 to-purple-800/10 rounded-full blur-3xl"
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.5, 0.2],
+          scale: [1, 1.5, 1],
+          opacity: [0.1, 0.3, 0.1],
           rotate: [0, 180, 360],
         }}
         transition={{
-          duration: 8,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
-      
       <motion.div
-        className="absolute bottom-10 right-10 w-60 h-60 bg-gradient-to-tl from-accent-orange/20 to-accent-orange/20 rounded-full blur-3xl"
+        className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-tl from-purple-600/10 to-purple-800/10 rounded-full blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.6, 0.3],
+          opacity: [0.2, 0.4, 0.2],
           rotate: [360, 180, 0],
         }}
         transition={{
@@ -66,9 +64,9 @@ export default function WelcomePage() {
             animate={{
               scale: [1, 1.05, 1],
               filter: [
-                'drop-shadow(0 0 20px rgba(255,153,0,0.5))',
-                'drop-shadow(0 0 30px rgba(255,153,0,0.8))',
-                'drop-shadow(0 0 20px rgba(255,153,0,0.5))'
+                'drop-shadow(0 0 20px rgba(255,255,255,0.5))',
+                'drop-shadow(0 0 30px rgba(255,255,255,0.8))',
+                'drop-shadow(0 0 20px rgba(255,255,255,0.5))'
               ]
             }}
             transition={{
@@ -77,7 +75,12 @@ export default function WelcomePage() {
               ease: "easeInOut"
             }}
           >
-            <span style={{ color: '#ffa31a' }}>
+            <span style={{ 
+              color: '#ffffff',
+              textShadow: '0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3)',
+              fontWeight: 900,
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
+            }}>
               PEEPZ
             </span>
           </motion.h1>

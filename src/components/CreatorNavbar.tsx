@@ -132,13 +132,13 @@ function CreateDropButton() {
       <div className="relative">
         {/* Ripple Layer */}
         {ripple && (
-          <span className="absolute inset-0 animate-ripple z-0 rounded-full bg-orange-400/30"></span>
+          <span className="absolute inset-0 animate-ripple z-0 rounded-full bg-purple-600/30"></span>
         )}
 
         <Link href="/creator/upload" className="relative z-10">
           <button
             onClick={handleClick}
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-purple-600 shadow-[0_0_25px_rgba(255,122,0,0.6)] flex items-center justify-center transition-transform duration-300 hover:scale-110 active:scale-95 border-2 border-black/20"
+            className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-purple-700 shadow-[0_0_25px_rgba(88,28,135,0.6)] flex items-center justify-center transition-transform duration-300 hover:scale-110 active:scale-95 border-2 border-black/20"
           >
             <Plus className="text-white w-6 h-6" />
           </button>
@@ -168,7 +168,7 @@ function NavItem({
     <Link href={path}>
               <motion.div
           className={`flex flex-col items-center text-[10px] sm:text-xs relative transition-all duration-300 ease-in-out group cursor-pointer ${
-            isActive ? "text-orange-400" : "text-white/70"
+            isActive ? "text-purple-400" : "text-white/70"
           }`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -183,7 +183,7 @@ function NavItem({
         <motion.div
           className={`relative p-2 rounded-full transition-all duration-300 ${
             isActive 
-              ? "bg-orange-400/20 ring-2 ring-orange-400/40" 
+              ? "bg-purple-600/20 ring-2 ring-purple-400/40" 
               : "bg-transparent"
           }`}
           whileHover={{
@@ -195,7 +195,7 @@ function NavItem({
           {/* Active indicator glow */}
           {isActive && (
             <motion.div
-              className="absolute inset-0 rounded-full bg-orange-400/20"
+              className="absolute inset-0 rounded-full bg-purple-600/20"
               animate={{ 
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5]
@@ -229,7 +229,7 @@ function NavItem({
 
         {/* Hover glow effect */}
         <motion.div
-          className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/20 to-purple-600/20 opacity-0"
+          className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/20 to-purple-700/20 opacity-0"
           whileHover={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         />

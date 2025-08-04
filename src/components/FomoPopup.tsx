@@ -90,7 +90,7 @@ export default function FomoPopup({
             {/* Variant 2: View in Vault CTA */}
             {showVaultCTA && (
               <button
-                className="mt-4 w-full text-white font-bold text-sm py-3 rounded-full bg-gradient-to-r from-purple-500 to-orange-500 hover:scale-105 transition-transform"
+                className="mt-4 w-full text-white font-bold text-sm py-3 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 hover:scale-105 transition-transform"
                 onClick={onViewVault}
               >
                 View in Vault
@@ -100,7 +100,7 @@ export default function FomoPopup({
             {!alreadyUnlocked && !showVaultCTA && (
               <>
                 <button
-                  className="w-full text-white font-bold text-sm py-3 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 shadow-xl hover:scale-[1.02] transition-transform mb-2"
+                  className="w-full text-white font-bold text-sm py-3 rounded-full bg-gradient-to-r from-purple-700 to-purple-600 shadow-xl hover:scale-[1.02] transition-transform mb-2"
                   onClick={onUnlock}
                 >
                   Unlock Now
@@ -108,7 +108,7 @@ export default function FomoPopup({
                 {/* Progress Bar */}
                 <div className="mt-3 w-full h-3 bg-white/10 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-orange-400 to-purple-500 rounded-full transition-all"
+                    className="h-full bg-gradient-to-r from-purple-600 to-purple-500 rounded-full transition-all"
                     style={{ width: `${progress}%` }}
                   />
                 </div>

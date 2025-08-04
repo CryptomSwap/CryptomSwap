@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import CreatorNavbar from "@/components/CreatorNavbar";
@@ -124,6 +124,7 @@ export default function Page() {
   const [showMenu, setShowMenu] = useState(false);
   const [avatar, setAvatar] = useState(creator.avatar);
   const [showFileInput, setShowFileInput] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
   const router = useRouter();
   const drops = creator.drops;
   const filteredDrops = drops.filter((d: any) => {
@@ -160,10 +161,20 @@ export default function Page() {
 
   return (
     <>
-      <div className="relative bg-gradient-to-b from-[#0d0d0d] to-[#1c1c1c] min-h-screen text-white overflow-hidden">
+      <div className="relative bg-background min-h-screen text-white overflow-hidden" style={{
+        background: 'radial-gradient(circle at center, #2a0030 0%, #1a001f 100%)'
+      }}>
         {/* PEEPZ Logo */}
         <div className="absolute top-6 left-6 z-50">
-          <div className="font-black text-xl tracking-wider peepz-logo" style={{ color: '#ffa31a' }}>
+          <div 
+            className="font-black text-xl tracking-wider peepz-logo" 
+            style={{ 
+              color: '#ffffff',
+              textShadow: '0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3)',
+              fontWeight: 900,
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
+            }}
+          >
             PEEPZ
           </div>
         </div>
@@ -268,11 +279,11 @@ export default function Page() {
         </motion.div>
 
         {/* Welcome Message */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 4, delay: 0.8, ease: "easeOut" }} className="max-w-md mx-auto mt-6 px-6">
-          <h2 className="text-[18px] font-sacrifice text-transparent bg-clip-text bg-gradient-to-r from-[#ffa31a] via-[#8A00D4] to-[#4A0080]">
+        <div className="max-w-md mx-auto mt-6 px-6">
+          <h2 className="welcome-fade text-[18px] font-sacrifice text-transparent bg-clip-text bg-gradient-to-r from-[#ffa31a] via-[#8A00D4] to-[#4A0080]">
             Welcome Back, Sophie
           </h2>
-        </motion.div>
+        </div>
 
         {/* Metrics Grid */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="max-w-md mx-auto px-6 mb-8">
